@@ -1,6 +1,6 @@
 (function() {
     //start of function
-  var app = angular.module('NewsSearcher', []);
+  var app = angular.module('WikiSearch', []);
 
 app.factory('memory', function($http){
 
