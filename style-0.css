@@ -1,12 +1,24 @@
 body {
   font-family:"Lato",sans-serif;
-  text-align:center;
   background-color: #134;
 }
 .content {
   position: relative;
   min-height: 100vh;
-  min-width:100vw;
+  width: 100vw;
+  color: #ffffff;
+  text-align:center;
+  overflow:hidden;
+}
+.searchr-container {
+  position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
   color: #ffffff;
 }
-
+.searchr {
+  position: relative;
+  top:45%;
+}
