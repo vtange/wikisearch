@@ -11,7 +11,7 @@ app.factory('memory', function(){
 
 app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
 
-  var homeUrl = "https://en.wikipedia.org/?curid=";
+  $scope.homeUrl = "https://en.wikipedia.org/?curid=";
   var baseUrl = "https://en.wikipedia.org/w/api.php";
   var query = "?action=query&list=search";
   var format = "&format=json";
@@ -26,7 +26,7 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
                                                 $http.jsonp(baseUrl + query + format + keyworder + term + callback).success(function(data1) {
                                                     for(var i=0; i<data1.query.search.length;i++){
                                                          $http.jsonp("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + data1.query.search[i].title + callback).success(function(data2) {
-                                                             $scope.returns.push(data2);
+                                                             $scope.returns.push(data2.query.pages[Object.keys(data2.query.pages)[0]]);
                                                             console.log($scope.returns);
                                                         }).error(function(data2) {
                                                             // you can do some processing here
