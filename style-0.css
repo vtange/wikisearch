@@ -8,7 +8,7 @@ body {
   width: 100vw;
   color: #ffffff;
   text-align:center;
-  overflow:hidden;
+  /*overflow:hidden;*/
 }
 .searchr-container {
   position: absolute;
