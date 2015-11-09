@@ -28,3 +28,17 @@ body {
   background-color: transparent;
   color: #ffffff;
 }
+
+a.boxclose{
+    position: relative;
+    cursor:pointer;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px; 
+}
+.boxclose:before{
+    content: "×";
+}
