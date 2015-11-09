@@ -11,20 +11,29 @@ app.factory('memory', function(){
 
 app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
 
+  var homeUrl = "https://en.wikipedia.org/?curid=";
   var baseUrl = "https://en.wikipedia.org/w/api.php";
-  var query = "?action=query";
+  var query = "?action=query&list=search";
   var format = "&format=json";
-  var generator = "&list=search&srsearch=";
+  var keyworder = "&srsearch=";
+  var whatToGet = "&prop=extracts&exintro=&explaintext=";
   var utf = "&utf8=";
   var callback = "&callback=JSON_CALLBACK"
     $scope.returns = []
     $scope.searchWiki = function(term){
+        $scope.returns = []
                                                 $http.defaults.headers.common["X-Custom-Header"] = "Angular.js";
-                                                $http.jsonp(baseUrl + query + format + generator + term + callback).success(function(data) {
-                                                    // you can do some processing here
-                                                     $scope.returns = data;
-                                                    console.log($scope.returns);
-                                                }).error(function(data) {
+                                                $http.jsonp(baseUrl + query + format + keyworder + term + callback).success(function(data1) {
+                                                    for(var i=0; i<data1.query.search.length;i++){
+                                                         $http.jsonp("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + data1.query.search[i].title + callback).success(function(data2) {
+                                                             $scope.returns.push(data2);
+                                                            console.log($scope.returns);
+                                                        }).error(function(data2) {
+                                                            // you can do some processing here
+                                                            console.log('error2');
+                                                        });
+                                                    }
+                                                }).error(function(data1) {
                                                     // you can do some processing here
                                                     console.log('error');
                                                 });

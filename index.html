@@ -12,10 +12,12 @@
                 <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click=""></a>
           </form>
           <div class="results">
-              <div class="results-item" data-ng-repeat="item in returns.query.search">
+              <a data-ng-href="{{}}" data-ng-repeat="item in returns.query.search">
+              <div class="results-item">
                 <h3><b>{{item.title}}</b></h3>
                 <p>{{item.snippet}}</p>
               </div>
+              </a>
           </div>
       </div>
   </div>
