@@ -16,13 +16,13 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
   var format = "&format=json";
   var title = "&titles=";
   var callback = "&callback=JSON_CALLBACK"
-
+    $scope.returns = []
     $scope.searchWiki = function(term){
                                                 $http.defaults.headers.common["X-Custom-Header"] = "Angular.js";
-                                                $http.jsonp(baseUrl + query + format + title + "san francisco" + callback).success(function(data) {
+                                                $http.jsonp(baseUrl + query + format + title + term + callback).success(function(data) {
                                                     // you can do some processing here
-                                                     storage.datadata = data;
-                                                    console.log(storage.datadata);
+                                                     $scope.returns = data;
+                                                    console.log($scope.returns);
                                                 }).error(function(data) {
                                                     // you can do some processing here
                                                     console.log('error');

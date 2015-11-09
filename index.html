@@ -8,11 +8,23 @@
 <body data-ng-app="WikiSearch">
   <div class="content">
       <div class="searchr-container" data-ng-controller="MainCtrl as wiki">
-    <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click=""></a>
-
-
-
-
+          <form data-ng-submit="searchWiki(wikiThis)">
+                <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click=""></a>
+          </form>
+          <div class="results">
+              <div class="results-item">
+                <h3><b>One Mississipi</b></h3>
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="results-item">
+                <h3><b>One Mississipi</b></h3>
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="results-item">
+                <h3><b>One Mississipi</b></h3>
+                <p>Lorem ipsum</p>
+              </div>
+          </div>
       </div>
   </div>
 </body>
