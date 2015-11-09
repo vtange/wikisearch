@@ -61,3 +61,11 @@ a.boxclose{
     margin-bottom:20px;
     color:black;
 }
+
+.results-item:hover {
+    padding:10px;
+    padding-left: 20px;
+    background-color:rgba(200,255,200,0.8);
+    margin-bottom:20px;
+    color:black;
+}

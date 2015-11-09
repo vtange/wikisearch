@@ -25,8 +25,8 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
                                                 $http.defaults.headers.common["X-Custom-Header"] = "Angular.js";
                                                 $http.jsonp(baseUrl + query + format + keyworder + term + callback).success(function(data1) {
                                                     for(var i=0; i<data1.query.search.length;i++){
-                                                         $http.jsonp("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + data1.query.search[i].title + callback).success(function(data2) {
-                                                             $scope.returns.push(data2.query.pages[Object.keys(data2.query.pages)[0]]);
+                                                         $http.jsonp("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&exsentences=1&titles=" + data1.query.search[i].title + callback).success(function(data2) {
+                                                             $scope.returns.push(data2.query.pages[Object.keys(data2.query.pages)[0]]);//first and only object in object.
                                                             console.log($scope.returns);
                                                         }).error(function(data2) {
                                                             // you can do some processing here
