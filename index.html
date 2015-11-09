@@ -3,11 +3,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style-0.css"/>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-animate.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body data-ng-app="WikiSearch">
   <div class="content">
-      <div class="searchr-container" data-ng-controller="MainCtrl as wiki">
+      <div class="searchr-container searchr-mid" data-ng-class="{'searchr-mid': !searched, 'searchr-up': searched}" data-ng-controller="MainCtrl as wiki">
+          <h1>Wiki Searcher</h1>
+          <a href="https://en.wikipedia.org/wiki/Special:Random"><button>Random Article</button></a>
           <form data-ng-submit="searchWiki(wikiThis)">
                 <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click=""></a>
           </form>

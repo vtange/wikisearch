@@ -10,7 +10,7 @@ app.factory('memory', function(){
 });//end of service
 
 app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
-
+  $scope.searched = false;
   $scope.homeUrl = "https://en.wikipedia.org/?curid=";
   var baseUrl = "https://en.wikipedia.org/w/api.php";
   var query = "?action=query&list=search";
@@ -21,7 +21,8 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
   var callback = "&callback=JSON_CALLBACK"
     $scope.returns = []
     $scope.searchWiki = function(term){
-        $scope.returns = []
+                                                $scope.returns = []//reset results
+                                                $scope.searched = true;
                                                 $http.defaults.headers.common["X-Custom-Header"] = "Angular.js";
                                                 $http.jsonp(baseUrl + query + format + keyworder + term + callback).success(function(data1) {
                                                     for(var i=0; i<data1.query.search.length;i++){
@@ -37,7 +38,6 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
                                                     // you can do some processing here
                                                     console.log('error');
                                                 });
-                                        $scope.wikiThis = "";
     }
 }]);//end of controller
   //end of function

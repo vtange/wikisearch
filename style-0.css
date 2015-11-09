@@ -16,8 +16,14 @@ body {
     bottom:0;
     right:0;
     left:0;
-    padding: 20% 20% 0 20%;
-
+    padding: 0 20% 0 20%;
+ transition: all 0.5s ease-in-out;
+}
+.searchr-mid{
+    padding-top: 20%;
+}
+.searchr-up{
+    padding-top: 5%;
 }
 .searchr {
   position: relative;
@@ -29,7 +35,9 @@ body {
   background-color: transparent;
   color: #ffffff;
 }
-
+a:hover{
+    text-decoration: none;
+}
 a.boxclose{
     position: relative;
     left:-40px;
@@ -68,4 +76,5 @@ a.boxclose{
     background-color:rgba(200,255,200,0.8);
     margin-bottom:20px;
     color:black;
+    transition: all 0.1s ease-in-out;
 }
