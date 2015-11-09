@@ -39,6 +39,29 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
                                                     console.log('error');
                                                 });
     }
+    $scope.hasInput = function(){
+        if ($scope.wikiThis.length > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    $scope.glance = [];
+    $scope.$watch(function() { return $scope.wikiThis},//watch this
+              function() {//do this when ^ changes
+                                                $http.defaults.headers.common["X-Custom-Header"] = "Angular.js";
+                                                $http.jsonp(baseUrl + query + format + keyworder + $scope.wikiThis + callback).success(function(data1) {
+                                                        $scope.glance = data1;
+                                                        }).error(function(data1) {
+                                                    // you can do some processing here
+                                                    console.log('error');
+                                                });
+        });
+    $scope.clear = function(){
+        $scope.searched = false;
+        $scope.wikiThis = "";
+    }
 }]);//end of controller
   //end of function
 })();

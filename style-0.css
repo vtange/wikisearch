@@ -50,8 +50,27 @@ a.boxclose{
 .boxclose:before{
     content: "×";
 }
-
-
+button {
+    display: block;
+    margin: auto;
+    padding: 0 10px 0 10px;
+    border: 3px solid lime;
+    border-radius:25px;
+    background-color: transparent;
+    color:papayawhip
+}
+form {
+    display: inline-block;
+}
+.previewPanel{
+    position: absolute;
+    display: inline-block;
+    background-color: rgba(255,255,255,0.6);
+    color:black;
+    z-index: 999;
+    padding: 10px;
+    border-radius: 10px;
+}
 
 
 

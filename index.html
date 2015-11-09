@@ -10,11 +10,14 @@
   <div class="content">
       <div class="searchr-container searchr-mid" data-ng-class="{'searchr-mid': !searched, 'searchr-up': searched}" data-ng-controller="MainCtrl as wiki">
           <h1>Wiki Searcher</h1>
-          <a href="https://en.wikipedia.org/wiki/Special:Random"><button>Random Article</button></a>
+          <a href="https://en.wikipedia.org/wiki/Special:Random"><button>Random Article!</button></a>
           <form data-ng-submit="searchWiki(wikiThis)">
-                <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click=""></a>
+                <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click="clear()"></a>
           </form>
-          <div class="results">
+          <div class="previewPanel">
+            <p data-ng-repeat="title in glance.query.search">{{title.title}}</p>
+          </div>
+          <div class="results" data-ng-if="searched == true">
               <a data-ng-href="{{homeUrl + item.pageid}}" data-ng-repeat="item in returns">
               <div class="results-item">
                 <h3><b>{{item.title}}</b></h3>
