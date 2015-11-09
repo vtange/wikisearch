@@ -14,7 +14,7 @@
           <form data-ng-submit="searchWiki(wikiThis)">
                 <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click="clear()"></a>
           </form>
-          <div class="previewPanel">
+          <div class="previewPanel" data-ng-if="hasInput()">
             <p data-ng-repeat="title in glance.query.search">{{title.title}}</p>
           </div>
           <div class="results" data-ng-if="searched == true">
