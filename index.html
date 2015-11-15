@@ -7,13 +7,13 @@
 </head>
 <body data-ng-app="WikiSearch">
   <div class="content">
-      <div class="searchr-container searchr-mid" data-ng-class="{'searchr-mid': !searched, 'searchr-up': searched}" data-ng-controller="MainCtrl as wiki">
+      <div class="searchr-container searchr-mid" data-ng-class="{'searchr-mid': !searched, 'searchr-up': searched}" data-ng-controller="MainCtrl as wiki"><!--move up once class changes to serch-up-->
           <h1>Wiki Searcher</h1>
-          <a href="https://en.wikipedia.org/wiki/Special:Random"><button>Random Article!</button></a>
+          <a href="https://en.wikipedia.org/wiki/Special:Random"><button>Random Article!</button></a><!--dunno why this counted as a user story-->
           <form data-ng-submit="searchWiki(wikiThis)">
-                <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click="clear()"></a>
+                <input class="searchr" type="text" data-ng-model="wikiThis"/><a class="boxclose" data-ng-click="clear()"></a><!--search bar and X-->
           </form>
-          <div class="previewPanel" data-ng-if="hasInput()">
+          <div class="previewPanel" data-ng-if="wikiThis"><!--search bar and X-->
             <p data-ng-repeat="title in glance.query.search">{{title.title}}</p>
           </div>
           <div class="results" data-ng-if="searched == true">
