@@ -1,8 +1,20 @@
+![alt tag](http://res.cloudinary.com/dmj8qtant/image/upload/c_limit,w_600/v1454452618/lainicav200larnipqgk.png)
 # wikisearch
 
-# Takeaways
+## Tech
+AngularJS + watching an input box
 
- 1. Search within a search, due to nature of Wikipedia API
+## Niceties
+Auto search on text entry.
+
+### Details
+#### CSS
+ 1. CSS Animation based off Ng-class
+ 2. "x" on text input.
+
+#### JS
+
+ 1. Perform a $http search within a search, due to nature of Wikipedia API
  2. Use of $watch to check for any input. Used for yellow search preview box.
 
   ```
